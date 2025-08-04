@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Yusra Fatma</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background-color: #74066e;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background-color: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #961b96;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #b41e82;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Contact Me</h1>
+  </header>
+
+  <div class="container">
+    <section>
+      <p>
+        Have a question, opportunity, or just want to say hello? Feel free to send me a message using the form below.
+      </p>
+
+      <form id="contactForm" onsubmit="return validateForm()">
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" placeholder="Your Name">
+
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com">
+
+        <label for="subject">Subject *</label>
+        <input type="text" id="subject" name="subject" placeholder="Subject">
+
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" placeholder="Write your message here..."></textarea>
+
+        <button type="submit">Send Message</button>
+        <p id="errorMsg" class="error"></p>
+      </form>
+    </section>
+  </div>
+
+  <script>
+    function validateForm() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+      const errorMsg = document.getElementById("errorMsg");
+
+      if (!name || !email || !subject || !message) {
+        errorMsg.textContent = "Please fill in all the required fields.";
+        return false;
+      }
+
+      // Simple email format validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        errorMsg.textContent = "Please enter a valid email address.";
+        return false;
+      }
+
+      errorMsg.textContent = ""; // Clear any previous errors
+      alert("Message submitted successfully (demo only).");
+      return false; // Prevent actual submission 
+    }
+  </script>
+
+</body>
+</html>

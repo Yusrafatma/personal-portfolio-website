@@ -1,0 +1,22 @@
+.resume-btn {
+  
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  background-color: #701d65;
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 999;
+}
+
+.resume-btn:hover {
+  background-color: #3d2e6a;
+  transform: scale(1.05);
+}
